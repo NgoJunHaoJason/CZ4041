@@ -4,6 +4,11 @@ Machine Learning project for Academic Year 2019-2020 Semester 2
 
 [Kaggle challenge - IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection)
 
+## TODO
+
+- show correlation heatmap at start of notebook
+- reduce memory usage before running rest of notebook
+
 ## references
 
 - [notebook 1 for result validation](https://www.kaggle.com/artgor/eda-and-models)
