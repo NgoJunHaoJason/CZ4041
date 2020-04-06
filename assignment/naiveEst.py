@@ -1,20 +1,15 @@
 """
 Naı̈ve Estimator
 """
-import os
-import pprint
-
-
-# change directory to this script's directory
-# since data.txt should be in the same directory
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
 def window_function(u):
     """
+    params:
+    - u: an iterable
+
     return:
-    - 1 if u_i < 1/2 for all i ∈ {1,2, ... , d}
-    - 0 otherwise
+    - 1 if u_i < 1/2 for all i ∈ {1,2, ... , d}, and 0 otherwise
     """
     for u_i in u:
         if abs(u_i) >= 0.5:
@@ -24,6 +19,10 @@ def window_function(u):
 
 def read_data(file_path='data.txt', verbose=False):
     """
+    params:
+    - file_path: path to file that contains data (default: 'data.txt')
+    - verbose: whether to print information (default: False)
+
     return: a tuple that consists of the following:
     - n: number of data instances
     - m: number of features of each data instance
@@ -45,14 +44,19 @@ def read_data(file_path='data.txt', verbose=False):
             data.append(data_instance)
 
         if verbose:
-            print('data:')
-            pprint.pprint(data)
+            print('data:', data)
 
     return n, m, data
 
 
 def estimate_density(data, h, n, V):
     """
+    params:
+    - data: a list of tuple, where each tuple is a data instance
+    - h: length of each edge of a hypercube (multi-variate version of delta)
+    - n: number of data instances
+    - V: volume of the hypercube
+
     return: a list of probability for each data instance in data
     """
     probabilities = []
@@ -73,12 +77,24 @@ def estimate_density(data, h, n, V):
 
 
 def write_output(probabilities, file_path='output.txt'):
+    """
+    params:
+    - probabilities: a list of probability for each data instance in data
+    - file_path: path to file for writing output to (default: 'output.txt')
+    """
     with open(file_path, 'w') as output_file:
         for probability in probabilities:
             output_file.write(str(probability) + '\n')
 
 
 if __name__ == '__main__':
+    import os
+
+
+    # change directory to this script's directory
+    # since data.txt should be in the same directory
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
     h = 2  # length of each edge of a hypercube
 
     n, m, data = read_data()
