@@ -1,5 +1,8 @@
 """
-Naı̈ve Estimator
+Naı̈ve Estimator (CZ4041 assignment)
+
+- author: Ngo Jun Hao Jason (matriculation number: U1721978B)
+- Python version: 3.7.6
 """
 
 
@@ -49,6 +52,30 @@ def read_data(file_path='data.txt', verbose=False):
     return n, m, data
 
 
+def estimate_probability(test_instance, data, h, n, V):
+    """
+    Naı̈ve Estimator
+    
+    params:
+    - test_instance: a tuple
+    - data: a list of tuple, where each tuple is a data instance
+    - h: length of each edge of a hypercube (multi-variate version of delta)
+    - n: number of data instances
+    - V: volume of the hypercube
+
+    return: relative likelihood that a RV from the data equals the test instance
+    """
+    sum = 0
+
+    for data_point in data:
+        x_minus_x_i = tuple(map(lambda x, x_i: x - x_i, test_instance, data_point))
+        x_minus_x_i_over_h = tuple(map(lambda x: x / h, x_minus_x_i))
+
+        sum += window_function(x_minus_x_i_over_h)
+
+    return (sum / n) / V
+
+
 def estimate_density(data, h, n, V):
     """
     params:
@@ -61,16 +88,9 @@ def estimate_density(data, h, n, V):
     """
     probabilities = []
 
-    for test_instance in data:
-        sum = 0
-
-        for other_instance in data:
-            x_minus_x_i = tuple(map(lambda x, x_i: x - x_i, test_instance, other_instance))
-            x_minus_x_i_over_h = tuple(map(lambda x: x / h, x_minus_x_i))
-
-            sum += window_function(x_minus_x_i_over_h)
-
-        p_hat = (sum / n) / V
+    for data_point in data:
+        # use each data point as a test instance in this assignment
+        p_hat = estimate_probability(data_point, data, h, n, V)
         probabilities.append(p_hat)
 
     return probabilities
