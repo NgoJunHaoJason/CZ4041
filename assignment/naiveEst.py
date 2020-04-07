@@ -63,7 +63,7 @@ def estimate_probability(test_instance, data, h, n, V):
     - n: number of data instances
     - V: volume of the hypercube
 
-    return: relative likelihood that a RV from the data equals the test instance
+    return: p_hat - relative likelihood that a RV from the data equals the test instance
     """
     sum = 0
 
@@ -86,14 +86,11 @@ def estimate_density(data, h, n, V):
 
     return: a list of probability for each data instance in data
     """
-    probabilities = []
-
-    for data_point in data:
-        # use each data point as a test instance in this assignment
-        p_hat = estimate_probability(data_point, data, h, n, V)
-        probabilities.append(p_hat)
-
-    return probabilities
+    # use each data point as a test instance in this assignment
+    return [
+        estimate_probability(data_point, data, h, n, V)
+        for data_point in data
+    ]
 
 
 def write_output(probabilities, file_path='output.txt'):
@@ -103,8 +100,9 @@ def write_output(probabilities, file_path='output.txt'):
     - file_path: path to file for writing output to (default: 'output.txt')
     """
     with open(file_path, 'w') as output_file:
-        for probability in probabilities:
-            output_file.write(str(probability) + '\n')
+        # avoid additional newline in output
+        output_file.writelines(map(lambda p: str(p) + '\n', probabilities[:-1]))
+        output_file.write(str(probabilities[-1]))
 
 
 if __name__ == '__main__':
