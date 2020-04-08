@@ -6,8 +6,7 @@ Machine Learning project for Academic Year 2019-2020 Semester 2
 
 ## TODO
 
-- show correlation heatmap at start of notebook
-- reduce memory usage before running rest of notebook
+- finish id feature selection by discussing results
 
 ## references
 
