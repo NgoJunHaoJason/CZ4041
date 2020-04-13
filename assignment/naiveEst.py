@@ -106,13 +106,6 @@ def write_output(probabilities, file_path='output.txt'):
 
 
 if __name__ == '__main__':
-    import os
-
-
-    # change directory to this script's directory
-    # since data.txt should be in the same directory
-    os.chdir(os.path.dirname(os.path.realpath(__file__)))
-
     h = 2  # length of each edge of a hypercube
 
     n, m, data = read_data()
