@@ -1,8 +1,14 @@
+# IDE
 .vscode
-data/
-models/
+
+# assignment
 data.txt
 output.txt
+
+# project
+data/
+models/
+output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
