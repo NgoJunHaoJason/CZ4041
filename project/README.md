@@ -16,3 +16,7 @@ Machine Learning project for Academic Year 2019-2020 Semester 2
 
 - [ensemble learning](https://www.analyticsvidhya.com/blog/2018/06/comprehensive-guide-for-ensemble-models/)
 - [random forest](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
+
+## parameter tuning references
+
+- [for xgboost](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
