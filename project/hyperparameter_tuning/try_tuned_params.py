@@ -1,5 +1,5 @@
 """
-Train LightGBM model.
+Try various hyperparameters.
 """
 
 # import libraries
@@ -356,6 +356,8 @@ def inference(output_name, classifier, test_dataframe, transaction_id_data):
 
 
 if __name__ == '__main__':
+    os.chdir('..')
+    
     print('loading and preprocessing training data...')
     train_data, val_data = load_training_data()
 
