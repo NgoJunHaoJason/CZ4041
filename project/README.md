@@ -4,6 +4,16 @@ Machine Learning project for Academic Year 2019-2020 Semester 2
 
 [Kaggle challenge - IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection)
 
+to view the results for each notebook, scroll to the bottom of the notebook
+
+## dependencies
+
+refer to `requirements.txt` or `ml_venv.txt`
+
+## directory structure
+
+TODO
+
 ## feature selection references
 
 - [notebook 1 for result validation](https://www.kaggle.com/artgor/eda-and-models)
@@ -20,3 +30,7 @@ Machine Learning project for Academic Year 2019-2020 Semester 2
 ## parameter tuning references
 
 - [for xgboost](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
+
+## feature engineering references
+
+- [lightgbm categorical features support](https://lightgbm.readthedocs.io/en/latest/Advanced-Topics.html#categorical-feature-support)
