@@ -11,8 +11,6 @@ To run the notebooks, make sure that:
 
 **To view the results of a notebook (for most notebooks), simply scroll to the bottom of the notebook.**
 
-If you are unsure, you can follow the instructions set-up and run notebooks below.
-
 ## to set-up
 
 no Anaconda
