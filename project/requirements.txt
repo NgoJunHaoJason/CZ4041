@@ -20,7 +20,7 @@ ipython-genutils==0.2.0
 jedi==0.16.0
 joblib==1.2.0
 jupyter-client==6.1.2
-jupyter-core==4.6.3
+jupyter-core==4.11.2
 kiwisolver==1.1.0
 lightgbm==2.3.2
 Mako==1.2.2
